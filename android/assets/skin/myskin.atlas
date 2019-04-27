@@ -1,0 +1,192 @@
+
+myskin.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+action_down
+  rotate: false
+  xy: 1, 367
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+action_up
+  rotate: false
+  xy: 1, 245
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+down_down
+  rotate: false
+  xy: 123, 367
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+down_up
+  rotate: false
+  xy: 1, 123
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+left_down
+  rotate: false
+  xy: 123, 245
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+left_up
+  rotate: false
+  xy: 245, 367
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+right_down
+  rotate: false
+  xy: 1, 1
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+right_up
+  rotate: false
+  xy: 123, 123
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+up_down
+  rotate: false
+  xy: 245, 245
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+up_up
+  rotate: false
+  xy: 367, 367
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+back_down
+  rotate: false
+  xy: 273, 95
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+back_up
+  rotate: false
+  xy: 273, 45
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+generic_button_down
+  rotate: false
+  xy: 223, 73
+  size: 48, 48
+  split: 5, 5, 0, 0
+  pad: 5, 5, 5, 5
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+generic_button_up
+  rotate: false
+  xy: 223, 23
+  size: 48, 48
+  split: 5, 5, 0, 0
+  pad: 5, 5, 5, 5
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+music_off
+  rotate: false
+  xy: 123, 73
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+music_on
+  rotate: false
+  xy: 245, 195
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+no_down
+  rotate: false
+  xy: 367, 317
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+no_up
+  rotate: false
+  xy: 123, 23
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+pause_down
+  rotate: false
+  xy: 173, 73
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+pause_up
+  rotate: false
+  xy: 245, 145
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+settings_down
+  rotate: false
+  xy: 295, 195
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+settings_up
+  rotate: false
+  xy: 367, 267
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+volume_off
+  rotate: false
+  xy: 417, 317
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+volume_on
+  rotate: false
+  xy: 173, 23
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+yes_down
+  rotate: false
+  xy: 295, 145
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+yes_up
+  rotate: false
+  xy: 417, 267
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
