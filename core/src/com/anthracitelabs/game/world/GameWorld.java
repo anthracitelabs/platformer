@@ -85,10 +85,10 @@ public class GameWorld {
                 {
                     //System.out.println(obj1 + " collided with " + obj2);
 
-                    ((MovingObject)obj1).mAllCollidingObjects.add(new CollisionData((MovingObject)obj2, overlap, obj1.mSpeed, obj2.mSpeed, obj1.mOldPosition, obj2.mOldPosition, obj1.mPosition, obj2.mPosition));
+                    ((MovingObject)obj1).mAllCollidingObjects.add(new CollisionData((MovingObject)obj2, overlap, new Vector2(obj1.mSpeed), new Vector2(obj2.mSpeed), new Vector2(obj1.mOldPosition), new Vector2(obj2.mOldPosition), new Vector2(obj1.mPosition), new Vector2(obj2.mPosition)));
                     overlap2.x = -overlap.x;
                     overlap2.y = -overlap.y;
-                    ((MovingObject)obj2).mAllCollidingObjects.add(new CollisionData((MovingObject)obj1, overlap2, obj2.mSpeed, obj1.mSpeed, obj2.mOldPosition, obj1.mOldPosition, obj2.mPosition, obj1.mPosition));
+                    ((MovingObject)obj2).mAllCollidingObjects.add(new CollisionData((MovingObject)obj1, overlap2, new Vector2(obj2.mSpeed), new Vector2(obj1.mSpeed), new Vector2(obj2.mOldPosition), new Vector2(obj1.mOldPosition), new Vector2(obj2.mPosition), new Vector2(obj1.mPosition)));
                 }
             }
         }

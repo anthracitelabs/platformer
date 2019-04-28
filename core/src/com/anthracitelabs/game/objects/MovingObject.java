@@ -43,6 +43,7 @@ public class MovingObject extends GameObject {
 
     public MovingObject mMountParent = null;
     public Vector2 mOffset;
+    public Vector2 mResponseOffset;
 
     private float groundY = 0;
     private float ceilingY = 0;
@@ -88,6 +89,7 @@ public class MovingObject extends GameObject {
         tempOldBottomRightForSide = new Vector2();
 
         mOffset = new Vector2();
+        mResponseOffset = new Vector2();
     }
 
     public void UpdatePhysics(float deltaTime)
@@ -125,8 +127,8 @@ public class MovingObject extends GameObject {
                 mMountParent = null;
         }
 
-        mPosition.x += mOffset.x;
-        mPosition.y += mOffset.y;
+        mPosition.x += Math.round(mOffset.x);
+        mPosition.y += Math.round(mOffset.y);
 
         // left wall collision
         if (mSpeed.x <= 0.0f
@@ -179,9 +181,6 @@ public class MovingObject extends GameObject {
         }
         else
             mAtCeiling = false;
-
-        //mPosition.x = Math.round(mPosition.x);
-        mPosition.y = Math.round(mPosition.y);
 
         //update the aabb
         mAABB.mCenterX = mPosition.x + mAABB.mHalfSizeX;
@@ -401,11 +400,8 @@ public class MovingObject extends GameObject {
 
     public void UpdatePhysicsP2(float deltaTime)
     {
-        mPosition.x -= mOffset.x;
-        mPosition.y -= mOffset.y;
-
-        //mPosition.x = Math.round(mPosition.x);
-        mPosition.y = Math.round(mPosition.y);
+        mPosition.x -= Math.round(mOffset.x);
+        mPosition.y -= Math.round(mOffset.y);
 
         //update the aabb
         mAABB.mCenterX = mPosition.x + mAABB.mHalfSizeX;
@@ -413,11 +409,10 @@ public class MovingObject extends GameObject {
 
         UpdatePhysicsResponse();
 
-        mPosition.x += mOffset.x;
-        mPosition.y += mOffset.y;
-
-        //mPosition.x = Math.round(mPosition.x);
-        mPosition.y = Math.round(mPosition.y);
+        mPosition.x += Math.round(mOffset.x);
+        mPosition.y += Math.round(mOffset.y);
+        mPosition.x += Math.round(mResponseOffset.x);
+        mPosition.y += Math.round(mResponseOffset.y);
 
         mPushesBottom = mOnGround || mPushesBottomObject;
         mPushesRight = mPushesRightWall || mPushesRightObject;
@@ -444,6 +439,8 @@ public class MovingObject extends GameObject {
         mPushesLeftObject = false;
         mPushesTopObject = false;
 
+        mResponseOffset.x = 0f;
+        mResponseOffset.y = 0f;
         Vector2 offsetSum = new Vector2(0, 0);
 
         for (int i = 0; i < mAllCollidingObjects.size(); ++i)
@@ -500,7 +497,8 @@ public class MovingObject extends GameObject {
             speedSum.x += absSpeed2.x;
             speedSum.y += absSpeed2.y;
 
-            float speedRatioX, speedRatioY;
+            float speedRatioX = 0f;
+            float speedRatioY = 0f;
 
             if (other.mIsKinematic)
                 speedRatioX = speedRatioY = 1.0f;
@@ -530,13 +528,15 @@ public class MovingObject extends GameObject {
             float offsetX = overlap.x * speedRatioX;
             float offsetY = overlap.y * speedRatioY;
 
+            System.out.println(offsetY + " " + overlap.y + " " + speedRatioY);
+
             boolean overlappedLastFrameX = Math.abs(oldPos1X - oldPos2X) < mAABB.mHalfSizeX + other.mAABB.mHalfSizeX;
             boolean overlappedLastFrameY = Math.abs(oldPos1Y - oldPos2Y) < mAABB.mHalfSizeY + other.mAABB.mHalfSizeY;
 
             if ((!overlappedLastFrameX && overlappedLastFrameY)
                     || (!overlappedLastFrameX && !overlappedLastFrameY && Math.abs(overlap.x) <= Math.abs(overlap.y)))
             {
-                mOffset.x += offsetX;
+                mResponseOffset.x += offsetX;
                 offsetSum.x += offsetX;
 
                 if (overlap.x < 0.0f)
@@ -552,7 +552,7 @@ public class MovingObject extends GameObject {
             }
             else //if (!overlappedLastFrameY)//if (Mathf.Abs(data.oldPos1.x - data.oldPos2.x) < mAABB.HalfSizeX + other.mAABB.HalfSizeX)
             {
-                mOffset.y += offsetY;
+                mResponseOffset.y += offsetY;
                 offsetSum.y += offsetY;
 
                 if (overlap.y < 0.0f)

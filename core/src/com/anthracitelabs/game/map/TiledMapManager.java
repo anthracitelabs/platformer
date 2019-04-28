@@ -104,7 +104,7 @@ public class TiledMapManager {
                             mActiveGameObjects.add(player);
                         }
                         else if (property.toString().compareTo("npc") == 0) {
-                            NPC npc = new NPC();
+                            NPC npc = new NPC(mTextureAtlas, this, mGameWorld);
                             npc.init(position, halfSize);
                             mActiveGameObjects.add(npc);
                         }
