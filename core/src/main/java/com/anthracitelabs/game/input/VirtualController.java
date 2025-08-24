@@ -44,14 +44,19 @@ public class VirtualController implements InputProcessor {
     public boolean touchDragged(int screenX, int screenY, int pointer) {
         return false;
     }
+	
+	@Override
+    public boolean touchCancelled(int a,int b,int c,int d) {
+		return false;
+	}
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
         return false;
     }
-
-    @Override
-    public boolean scrolled(int amount) {
+	
+	@Override
+    public boolean scrolled(float x, float y) {
         return false;
     }
 }

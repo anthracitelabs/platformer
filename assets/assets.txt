@@ -1,0 +1,13 @@
+backgrounds/menu_background.png
+images/characters.pack.atlas
+images/characters.pack.png
+levels/industrial.tsx
+levels/industrial.v2.png
+levels/level_1.tmx
+levels/levels.txt
+menu_background.png
+menu_background.tmx
+skin/ZCOOLQingKeHuangYou-Regular.ttf
+skin/myskin.atlas
+skin/myskin.json
+skin/myskin.png
